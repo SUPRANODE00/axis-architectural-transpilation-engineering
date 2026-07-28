@@ -1,19 +1,38 @@
-# AXIS Spatial Anomaly Detector
+# AXIS Spatial Anomaly Detector (SAD)
 
-The AXIS Spatial Anomaly Detector monitors real-time execution paths to identify abnormal movement spikes, jitter clusters, and unauthorized spatial deviations.
+The AXIS Spatial Anomaly Detector identifies irregularities in movement,
+signal timing, and spatial memory behavior during VM execution.
 
-## Detection Capabilities
+## Anomaly Classes
 
-### 1. Jitter Spike Analysis
-- Identifies micro-oscillations exceeding normal spatial thresholds.
-- Flags erratic vector changes before VM execution.
+### 1. Movement Anomalies
+Detects:
+- Sudden jitter spikes
+- Non-normalized vectors
+- Path discontinuities
 
-### 2. Path Deviation Tracking
-- Compares active movement streams against baseline IR trajectories.
-- Triggers alerts on unexpected boundary violations.
+### 2. Signal Anomalies
+Flags:
+- Overlapping channel emissions
+- Event storms
+- Desynchronized visualizer hooks
 
-### 3. Signal Anomaly Monitoring
-- Detects flood events or dead channels across signal emitters.
+### 3. Trace Anomalies
+Identifies:
+- Over-dense checkpoints
+- Missing anchors
+- Temporal drift
+
+### 4. Memory Anomalies
+Reports:
+- Stale spatial buffers
+- Orphaned vectors
+- Unreachable trace anchors
+
+## Detection Pipeline
+- Collect spatial metrics
+- Run anomaly classifiers
+- Generate diagnostic overlays
 
 ## Output
-An automated anomaly report and emergency isolation trigger for runtime protection.
+A structured anomaly report for debugging and optimization.
