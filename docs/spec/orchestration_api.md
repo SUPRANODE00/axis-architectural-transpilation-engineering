@@ -1,39 +1,19 @@
-# AXIS Architectural Orchestration API (AOPA)
+# AXIS Architectural Orchestration API
 
-The AXIS Architectural Orchestration API provides a unified interface for
-controlling, coordinating, and automating AXIS subsystems.
+The AXIS Architectural Orchestration API provides programmatic endpoints to control, monitor, and synchronize transpilation pipelines and distributed VM nodes.
 
-## API Domains
+## API Modules
 
-### 1. Spatial Control API
-Allows:
-- Movement injection
-- Path overrides
-- Trace manipulation
+### 1. Pipeline Control
+- Triggers DSL parsing, IR construction, and optimization passes remotely.
+- Manages build automation and script synchronization.
 
-### 2. Compute Control API
-Supports:
-- Stack operations
-- Compute pipeline configuration
-- Micro-op batching
+### 2. Telemetry Ingestion
+- Receives live spatial data packets and logs them into backend databases.
+- Feeds metrics into the heatmap and profiling engines.
 
-### 3. Signal Control API
-Manages:
-- Channel routing
-- Event scheduling
-- Visualizer integration
-
-### 4. Diagnostic API
-Provides:
-- Runtime metrics
-- Anomaly reports
-- Profiling data
-
-### 5. Orchestration API
-Coordinates:
-- Multi-node execution
-- VM hypervisor interactions
-- Distributed spatial workflows
+### 3. Node Coordination
+- Synchronizes distributed compute, spatial, and signal nodes across network boundaries.
 
 ## Output
-A programmable interface for building complex spatial architectures.
+A unified programmatic interface for managing end-to-end AXIS operations.
