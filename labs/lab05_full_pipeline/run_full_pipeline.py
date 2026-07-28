@@ -35,3 +35,7 @@ print(instructions)
 print("\n=== AXIS VM Execution State ===")
 print("Stack:", vm.stack)
 print("Registers:", vm.registers)
+from labs.lab06_visualizer.mpl_3d_plot import plot_ast_3d
+plot_ast_3d(ast)
+from labs.lab06_visualizer.mpl_3d_plot import plot_ast_3d
+plot_ast_3d(ast)
