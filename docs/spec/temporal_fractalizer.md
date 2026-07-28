@@ -1,33 +1,20 @@
-# AXIS VM Temporal Fractalizer (VTF)
+# AXIS VM Temporal Fractalizer
 
-The AXIS Temporal Fractalizer models VM execution across fractal temporal
-layers, enabling multi-scale timing analysis and quantum-stable execution.
+The AXIS VM Temporal Fractalizer manages multi-scale time divisions, enabling nested temporal timelines and fractal execution slicing for complex spatial simulations.
 
-## Fractal Responsibilities
+## Fractal Temporal Capabilities
 
-### Micro-Fractal Timing
-Analyzes:
-- Sub-cycle micro-op timing
-- Quantum jitter patterns
-- Temporal micro-structure
+### 1. Nested Timeline Slicing
+- Divides core execution cycles into sub-timelines for parallel micro-op evaluation.
+- Maintains precise synchronization across nested temporal layers.
 
-### Meso-Fractal Timing
-Models:
-- Movement pacing waves
-- Signal phase clusters
-- Trace temporal harmonics
+### 2. Temporal Scaling
+- Accelerates or decelerates execution cadence based on spatial complexity.
+- Compresses temporal history for rapid trace replay and debugging.
 
-### Macro-Fractal Timing
-Simulates:
-- Long-range temporal drift
-- Distributed node timing envelopes
-- Multi-timeline coherence
-
-### Fractal Temporal Synthesis
-Combines:
-- Micro, meso, and macro fractals
-- Quantum timing primitives
-- Distributed temporal alignment
+### 3. Timeline Synchronization
+- Reconciles state divergences across fractal boundaries.
+- Ensures deterministic convergence back to base-zero time ground.
 
 ## Output
-A fractal temporal model used for prediction, correction, and optimization.
+A multi-scale temporal execution matrix for advanced VM analysis and simulation.
