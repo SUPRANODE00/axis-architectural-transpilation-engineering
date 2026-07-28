@@ -1,41 +1,34 @@
-import sys, os
-
-repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.append(repo_root)
-
-from src.axis_parser.parser import AxisParser
-from src.axis_codegen.generator import JavaScriptCodeGenerator
-from src.axis_transform.bytecode_generator import BytecodeGenerator
-from src.axis_bytecode_vm.vm import AxisBytecodeVM
-
-tokens = ["govern", "trace", "signal", "compute"]
-
-# 1. Parse → 3D AST
-parser = AxisParser()
-ast = parser.parse(tokens)
-
-# 2. Transpile → JavaScript
-js_gen = JavaScriptCodeGenerator()
-js_code = js_gen.visit(ast)
-
-# 3. Generate → Bytecode
-byte_gen = BytecodeGenerator()
-instructions = byte_gen.generate(ast)
-
-# 4. Execute → VM
-vm = AxisBytecodeVM()
-vm.execute(instructions)
-
-print("=== AXIS 3D AST ===")
-print(ast)
-print("\n=== AXIS JavaScript Output ===")
-print(js_code)
-print("\n=== AXIS Bytecode Instructions ===")
-print(instructions)
-print("\n=== AXIS VM Execution State ===")
-print("Stack:", vm.stack)
-print("Registers:", vm.registers)
 from labs.lab06_visualizer.mpl_3d_plot import plot_ast_3d
-plot_ast_3d(ast)
-from labs.lab06_visualizer.mpl_3d_plot import plot_ast_3d
-plot_ast_3d(ast)
+
+class MockResource:
+    def __init__(self, x, y, z, layer):
+        self.x = x
+        self.y = y
+        self.z = z
+        self.layer = layer
+
+class MockNode:
+    def __init__(self, name, x, y, z):
+        self.name = name
+        self.kind = "Statement"
+        self.resource = MockResource(x, y, z, "signal")
+
+class MockAST:
+    def __init__(self):
+        self.children = [
+            MockNode("govern", 1.0, 0.25, 0.5),
+            MockNode("trace", 1.0, 0.5, 0.5),
+            MockNode("signal", 1.0, 0.75, 0.5),
+            MockNode("compute", 1.0, 1.0, 0.5),
+        ]
+
+class MockVM:
+    def __init__(self):
+        self.path = [(0.0, 0.0, 0.0), (1.0, 0.5, 0.5), (1.0, 1.0, 0.5)]
+
+if __name__ == "__main__":
+    ast = MockAST()
+    vm = MockVM()
+    
+    print("=== Executing Full Pipeline with Visualizer ===")
+    plot_ast_3d(ast, vm)

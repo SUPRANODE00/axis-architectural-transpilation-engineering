@@ -19,6 +19,14 @@ class AxisBytecodeVM:
             self.registers["x"] = instr.get("x", 0.0)
             self.registers["y"] = instr.get("y", 0.0)
             self.registers["z"] = instr.get("z", 0.0)
-            self.path.append((self.registers["x"], self.registers["y"], self.registers["z"]))
+            self.path.append((self.registers["x"], self.registers["y"], self.registers["z"], instr.get("intensity", 0.5)))
         else:
             raise ValueError(f"Unknown opcode: {op}")
+
+    def record_load(self, intensity):
+        # Store intensity for heatmap visualization
+            self.path.append((self.registers["x"], self.registers["y"], self.registers["z"], instr.get("intensity", 0.5)))
+
+    def record_load(self, intensity):
+        # Store intensity for heatmap visualization
+            self.path.append((self.registers["x"], self.registers["y"], self.registers["z"], instr.get("intensity", 0.5)))
