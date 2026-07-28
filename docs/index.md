@@ -10,4 +10,3 @@ Welcome to the AXIS Architectural Transpilation Engine documentation.
 - [3D Visualizers](visualizers/index.md)
 - [Labs & Tutorials](labs/index.md)
 - [AXIS Specification](spec/index.md)
-
