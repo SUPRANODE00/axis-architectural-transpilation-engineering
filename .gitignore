@@ -1,12 +1,6 @@
 sovereign_telemetry.log
 axis_vector_registry.dat
-sovereign_telemetry.log
-axis_vector_registry.dat
-sovereign_telemetry.log
-axis_vector_registry.dat
-sovereign_telemetry.log
-axis_vector_registry.dat
-sovereign_telemetry.log
-axis_vector_registry.dat
-axis_vector_registry.dat
-axis_vector_registry.dat
+axis-daemon.log
+cat
+const
+server.js
