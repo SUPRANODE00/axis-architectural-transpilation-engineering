@@ -5,19 +5,19 @@ density, and architectural flow across VM execution timelines.
 
 ## Heatmap Layers
 
-### 1. Movement Density Layer
+### Movement Density Layer
 Shows:
 - High-frequency movement zones
 - Jitter clusters
 - Path congestion
 
-### 2. Signal Activity Layer
+### Signal Activity Layer
 Displays:
 - Channel hotspots
 - Event bursts
 - Temporal signal density
 
-### 3. Trace Concentration Layer
+### Trace Concentration Layer
 Highlights:
 - Overused checkpoints
 - Spatial anchor clusters

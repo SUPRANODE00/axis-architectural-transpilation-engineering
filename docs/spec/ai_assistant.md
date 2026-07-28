@@ -5,25 +5,25 @@ transpilation, optimization, and spatial program design.
 
 ## Assistant Capabilities
 
-### 1. Code Insight
+### Code Insight
 Provides:
 - Optimization suggestions
 - Movement smoothing hints
 - Signal usage recommendations
 
-### 2. Structural Insight
+### Structural Insight
 Analyzes:
 - IR block flow
 - CFG complexity
 - Spatial dependencies
 
-### 3. Diagnostic Insight
+### Diagnostic Insight
 Interprets:
 - Runtime anomalies
 - Heatmap hotspots
 - Profiling bottlenecks
 
-### 4. Design Insight
+### Design Insight
 Assists with:
 - Spatial architecture planning
 - VM performance tuning

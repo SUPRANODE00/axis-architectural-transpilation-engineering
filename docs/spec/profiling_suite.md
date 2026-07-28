@@ -5,25 +5,25 @@ execution, micro-op throughput, and spatial efficiency.
 
 ## Profiling Metrics
 
-### 1. Micro-Op Throughput
+### Micro-Op Throughput
 Tracks:
 - Ops per cycle
 - Expansion cost
 - Execution latency
 
-### 2. Spatial Efficiency
+### Spatial Efficiency
 Measures:
 - Movement overhead
 - Path smoothness
 - Jitter frequency
 
-### 3. Stack Performance
+### Stack Performance
 Monitors:
 - PUSH/POP rates
 - Operand validity
 - Compute bottlenecks
 
-### 4. Signal Performance
+### Signal Performance
 Analyzes:
 - Channel load
 - Event timing
