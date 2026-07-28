@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AXIS WebGL Playback</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script>
+async function main() {
+  const resp = await fetch('../axis_pipeline.json');
+  const data = await resp.json();
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x000000);
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 100);
+  camera.position.set(2, 2, 2);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(3, 3, 3);
+  scene.add(light);
+
+  function addNode(node) {
+    if (node.x !== null) {
+      const geom = new THREE.SphereGeometry(0.03, 16, 16);
+      const mat = new THREE.MeshPhongMaterial({ color: 0x00ffff });
+      const mesh = new THREE.Mesh(geom, mat);
+      mesh.position.set(node.x, node.y, node.z);
+      scene.add(mesh);
+    }
+    (node.children || []).forEach(addNode);
+  }
+  addNode(data.ast);
+
+  const path = data.vm_path || [];
+  const trailGeom = new THREE.BufferGeometry();
+  const trailPositions = new Float32Array(path.length * 3);
+  trailGeom.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3));
+  const trailMat = new THREE.LineBasicMaterial({ color: 0xff0000 });
+  const trail = new THREE.Line(trailGeom, trailMat);
+  scene.add(trail);
+
+  const pointGeom = new THREE.SphereGeometry(0.05, 16, 16);
+  const pointMat = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+  const point = new THREE.Mesh(pointGeom, pointMat);
+  scene.add(point);
+
+  let frame = 0;
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    if (path.length > 0) {
+      const idx = frame % path.length;
+      const [x, y, z] = path[idx];
+      point.position.set(x, y, z);
+
+      for (let i = 0; i <= idx; i++) {
+        const [px, py, pz] = path[i];
+        trailPositions[i*3 + 0] = px;
+        trailPositions[i*3 + 1] = py;
+        trailPositions[i*3 + 2] = pz;
+      }
+      trailGeom.setDrawRange(0, idx + 1);
+      trailGeom.attributes.position.needsUpdate = true;
+
+      frame++;
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+}
+
+main();
+</script>
+</body>
+</html>
