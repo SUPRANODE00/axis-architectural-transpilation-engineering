@@ -1,0 +1,24 @@
+name: AXIS 24/7 Automated Worker Loop
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Runs every 30 minutes to maintain continuous pulse
+  workflow_dispatch:
+
+jobs:
+  axis-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Execute Autonomous Telemetry Loop
+        run: |
+          python3 run_axis_transmission_runner.py &
+          sleep 10
+          echo "[AXIS-WORKER] Telemetry loop active and stable."
