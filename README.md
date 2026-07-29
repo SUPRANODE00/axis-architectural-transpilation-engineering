@@ -37,6 +37,8 @@ Welcome to the official repository for **AXIS Architectural Transpilation Engine
 AXIS is a specialized framework dedicated to 4D spatial computing and foresight capsules, architectural transpilation, deterministic virtual machine execution, and sovereign telemetry pipelines. 
 
 ## Documentation & Specifications
+* [Identifier Matrix](docs/spec/identifiers.md)
+* [E.Y.E. Monitoring Layer](docs/axis/eye_monitoring.md)
 * [Security Model](docs/axis/security.md) - Pipeline integrity, contributor trust, and execution safety safeguards.
 * [Compiler Grammar](docs/spec/grammar.md) - DSL grammar and syntax rules for architectural instructions.
 * [Spatial Bytecode Reference](docs/spec/bytecode.md) - Core 3D movement and computation instruction set.
